@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article class="media content-section">
+    <div class="media-body">
+        <h2 class="article-title">{{ post.title }}</h2>
+        <p class="article-content">{{ post.content }}</p>
+        <div class="article-metadata">
+            <small class="text-muted">
+                作者：{{ post.author.username }} | 
+                发布时间：{{ post.date_posted.strftime('%Y-%m-%d') }}
+            </small>
+        </div>
+    </div>
+</article>
+{% endblock content %}

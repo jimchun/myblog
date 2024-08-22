@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}管理员仪表板{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">管理员仪表板</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-header">用户总数</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ user_count }}</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-header">博文总数</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ post_count }}</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-info mb-3">
+                <div class="card-header">最新注册用户</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ latest_user.username }}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <a href="{{ url_for('admin.admin_users') }}" class="btn btn-primary btn-lg btn-block">管理用户</a>
+        </div>
+        <div class="col-md-6">
+            <a href="{{ url_for('admin.admin_posts') }}" class="btn btn-secondary btn-lg btn-block">管理博文</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
