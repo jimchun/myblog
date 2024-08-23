@@ -50,3 +50,12 @@ blog/
 ├── run.py
 └── requirements.txt
 ```
+
+2. 安装必要的包:
+创建 `requirements.txt` 文件:
+Flask==2.1.0
+Flask-SQLAlchemy==2.5.1
+Flask-Login==0.5.0
+Flask-WTF==0.15.1
+mysqlclient==2.0.3
+
