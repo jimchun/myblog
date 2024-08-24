@@ -59,3 +59,5 @@ Flask-Login==0.5.0
 Flask-WTF==0.15.1
 mysqlclient==2.0.3
 
+然后运行:
+pip install -r requirements.txt
