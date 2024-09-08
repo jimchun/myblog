@@ -1,4 +1,4 @@
-# BlogA
+# BlogA【这是一个完全依赖cursor完成的项目】
 
 这是一个基于 Flask 的博客项目。
 
@@ -44,13 +44,65 @@ blog/
  requirements.txt
 ```
 
-2. װҪİ:
- `requirements.txt` ļ:
-Flask==2.1.0
-Flask-SQLAlchemy==2.5.1
-Flask-Login==0.5.0
-Flask-WTF==0.15.1
-mysqlclient==2.0.3
+## 安装步骤
 
-Ȼ:
-pip install -r requirements.txt
+1. 克隆项目到本地：
+
+   ```bash
+   git clone https://github.com/yourusername/blogA.git
+   cd blogA
+   ```
+
+2. 创建虚拟环境并激活：
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # 在 Windows 上使用 `venv\Scripts\activate`
+   ```
+
+3. 安装依赖：
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. 配置数据库：
+
+   在 `config.py` 文件中配置你的 MySQL 数据库连接：
+
+   ```python
+   class Config:
+       SECRET_KEY = 'your-secret-key'
+       SQLALCHEMY_DATABASE_URI = 'mysql://username:password@localhost/flask_blog'
+       SQLALCHEMY_TRACK_MODIFICATIONS = False
+   ```
+
+5. 初始化数据库：
+
+   ```bash
+   flask db init
+   flask db migrate -m "Initial migration"
+   flask db upgrade
+   ```
+
+6. 运行应用：
+
+   ```bash
+   flask run
+   ```
+
+7. 在浏览器中访问 `http://localhost:5000`。
+
+## 使用说明
+
+- 注册新用户并登录。
+- 登录后可以发布、编辑和删除博文。
+- 管理员可以管理用户和博文。
+
+## 贡献
+
+欢迎提交问题和贡献代码。请 fork 本项目并提交 pull request。
+
+## 许可证
+
+本项目使用 MIT 许可证。详细信息请参阅 LICENSE 文件。
