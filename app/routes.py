@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, flash, request
+from flask import Blueprint, render_template, redirect, url_for, flash, request, jsonify
 from flask_login import login_user, logout_user, login_required, current_user
 from app import db
 from app.models import User, Post
@@ -104,3 +104,14 @@ def admin_posts():
         return redirect(url_for('main.index'))
     posts = Post.query.all()
     return render_template('admin/posts.html', posts=posts)
+
+@admin.route('/admin/delete_post/<int:post_id>', methods=['POST'])
+@login_required
+def delete_post(post_id):
+    if not current_user.is_admin:
+        return jsonify({"success": False, "message": "权限不足"}), 403
+    
+    post = Post.query.get_or_404(post_id)
+    db.session.delete(post)
+    db.session.commit()
+    return jsonify({"success": True, "message": "博文已删除"})

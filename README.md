@@ -1,63 +1,56 @@
-# blogA
-all coding by CURSOR
-Çë´´½¨Ò»¸öblog³ÌĞò£¬¾ßÌåÈçÏÂ£º
+# BlogA
 
-¼¼ÊõÕ»£º
-- ºó¶Ë: Flask (Python web¿ò¼Ü)
-- Êı¾İ¿â: MySQL£¬±¾µØÊı¾İ¿ârootÃÜÂë£ºZoe@9820
-- Ç°¶Ë: HTML/CSS/JavaScript (¿ÉÒÔÊ¹ÓÃBootstrapµÈ¿ò¼Ü)
+è¿™æ˜¯ä¸€ä¸ªåŸºäº Flask çš„åšå®¢é¡¹ç›®ã€‚
 
-ÊµÏÖ¹¦ÄÜ£º
-4. ÓÃ»§×¢²á¹¦ÄÜ
-- ´´½¨×¢²á±íµ¥¡£
-- ÑéÖ¤ÊäÈëÊı¾İ¡£
-- ½«ÓÃ»§Êı¾İ´æ´¢µ½Êı¾İ¿â¡£
+## é¡¹ç›®ç®€ä»‹
 
-5. ÓÃ»§²©ÎÄ¹¦ÄÜ
-- ´´½¨²©ÎÄ·¢²¼±íµ¥¡£
-- ÊµÏÖ²©ÎÄµÄCRUD£¨´´½¨¡¢¶ÁÈ¡¡¢¸üĞÂ¡¢É¾³ı£©²Ù×÷¡£
+BlogA æ˜¯ä¸€ä¸ªç®€å•çš„åšå®¢ç³»ç»Ÿï¼Œç”¨æˆ·å¯ä»¥æ³¨å†Œã€ç™»å½•ã€å‘å¸ƒåšæ–‡ã€ç¼–è¾‘åšæ–‡å’Œåˆ é™¤åšæ–‡ã€‚ç®¡ç†å‘˜å¯ä»¥ç®¡ç†ç”¨æˆ·å’Œåšæ–‡ã€‚
 
-6. ¹ÜÀíÔ±½çÃæ
-- ÊµÏÖ¹ÜÀíÔ±µÇÂ¼¡£
-- Ìá¹©¹ÜÀíÓÃ»§ºÍ²©ÎÄµÄ½çÃæ¡£
+## æŠ€æœ¯æ ˆ
 
-7. Ìá¹©´´½¨Êı¾İµÄ³õÊ¼»¯³ÌĞò
+- åç«¯: Flask (Python Web æ¡†æ¶)
+- æ•°æ®åº“: MySQL
+- å‰ç«¯: HTML/CSS/JavaScript (ä½¿ç”¨ Bootstrap)
 
-ºÃµÄ,ÎÒÀ´ÎªÄú´´½¨Ò»¸ö»ùÓÚFlaskµÄ²©¿Í³ÌĞò¡£ÎÒÃÇ½«·Ö²½ÖèÊµÏÖÕâ¸öÏîÄ¿¡£Ê×ÏÈ,ÈÃÎÒÃÇÉèÖÃÏîÄ¿½á¹¹ºÍ»ù±¾ÅäÖÃ¡£
+## åŠŸèƒ½
 
+1. ç”¨æˆ·æ³¨å†Œå’Œç™»å½•
+2. ç”¨æˆ·å‘å¸ƒåšæ–‡
+3. ç”¨æˆ·ç¼–è¾‘å’Œåˆ é™¤è‡ªå·±çš„åšæ–‡
+4. ç®¡ç†å‘˜ç®¡ç†ç”¨æˆ·å’Œåšæ–‡
 
-1. ÏîÄ¿½á¹¹:
+## é¡¹ç›®ç»“æ„
 
 ```
 blog/
-©¦
-©À©¤©¤ app/
-©¦   ©À©¤©¤ __init__.py
-©¦   ©À©¤©¤ models.py
-©¦   ©À©¤©¤ routes.py
-©¦   ©¸©¤©¤ templates/
-©¦       ©À©¤©¤ base.html
-©¦       ©À©¤©¤ index.html
-©¦       ©À©¤©¤ register.html
-©¦       ©À©¤©¤ login.html
-©¦       ©À©¤©¤ post.html
-©¦       ©¸©¤©¤ admin/
-©¦           ©À©¤©¤ dashboard.html
-©¦           ©À©¤©¤ users.html
-©¦           ©¸©¤©¤ posts.html
-©¦
-©À©¤©¤ config.py
-©À©¤©¤ run.py
-©¸©¤©¤ requirements.txt
+
+ app/
+   __init__.py
+   models.py
+   routes.py
+   templates/
+       base.html
+       index.html
+       register.html
+       login.html
+       post.html
+       admin/
+           dashboard.html
+           users.html
+           posts.html
+
+ config.py
+ run.py
+ requirements.txt
 ```
 
-2. °²×°±ØÒªµÄ°ü:
-´´½¨ `requirements.txt` ÎÄ¼ş:
+2. ×°ÒªÄ°:
+ `requirements.txt` Ä¼:
 Flask==2.1.0
 Flask-SQLAlchemy==2.5.1
 Flask-Login==0.5.0
 Flask-WTF==0.15.1
 mysqlclient==2.0.3
 
-È»ºóÔËĞĞ:
+È»:
 pip install -r requirements.txt

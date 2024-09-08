@@ -17,7 +17,7 @@
         </thead>
         <tbody>
             {% for post in posts %}
-            <tr>
+            <tr id="post-{{ post.id }}">
                 <td>{{ post.id }}</td>
                 <td>{{ post.title }}</td>
                 <td>{{ post.author.username }}</td>
@@ -25,11 +25,53 @@
                 <td>
                     <a href="{{ url_for('main.post', post_id=post.id) }}" class="btn btn-sm btn-info">查看</a>
                     <a href="#" class="btn btn-sm btn-primary">编辑</a>
-                    <a href="#" class="btn btn-sm btn-danger">删除</a>
+                    <button onclick="deletePost({{ post.id }})" class="btn btn-sm btn-danger">删除</button>
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </div>
+
+<script>
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+function deletePost(postId) {
+    if (confirm('确定要删除这篇博文吗？')) {
+        fetch(`/admin/delete_post/${postId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrf_token')  // 添加 CSRF 令牌
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message);
+                document.getElementById(`post-${postId}`).remove();
+            } else {
+                alert('删除失败：' + data.message);
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert('删除过程中发生错误');
+        });
+    }
+}
+</script>
 {% endblock %}
